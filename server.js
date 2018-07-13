@@ -40,16 +40,16 @@ app.get("/scrape", function (req, res) {
             result.image = $(this).find("img").attr("srcset").split(" ")[0];
             result.title = $(this).find("h1.feature-item-hed").text();
             result.descrip = $(this).find("p.feature-item-dek").text();
-            result.link = "https://www.bonappetit.com"+$(this).find("a").attr("href");
+            result.link = "https://www.bonappetit.com" + $(this).find("a").attr("href");
             db.Article.create(result)
                 .then(function (dbArticle) {
 
                     // console.log(dbArticle);
                 })
-                // .catch(function (err) {
+            .catch(function (err) {
 
-                //     return res.json(err);
-                // });
+                return res.json(err);
+            });
         });
 
 

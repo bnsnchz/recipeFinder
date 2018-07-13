@@ -14,15 +14,17 @@ var ArticleSchema = new Schema({
   // `link` is required and of type String
   link: {
     type: String,
+    required: true,
+    unique: true
+  },
+  image: {
+    type: String,
+    required: true,
+    unique:true
+  },
+  descrip: {
+    type: String,
     required: true
-  },
-  image:{
-      type:String,
-      required: true
-  },
-  descrip:{
-      type:String,
-      required:true
   },
   note: {
     type: Schema.Types.ObjectId,

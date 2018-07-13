@@ -2,7 +2,7 @@
   "name": "scrape-da-food",
   "version": "1.0.0",
   "description": "Scraping Bon Apetite for recipies.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
