@@ -8,11 +8,11 @@ $.getJSON("/articles", function (data) {
       data[i].link +
       "'><img src='" +
       data[i].image +
-      "'></a><p class='description'>" 
-      + data[i].descrip +
-      "</p></br><button id='myBtn' data-id='"
-       + data[i]._id + 
-       "'>Add Notes</button>")
+      "'></a><p class='description'>" +
+      data[i].descrip +
+      "</p></br><button id='myBtn' data-id='" +
+      data[i]._id +
+      "'>Add Notes</button>")
 
   }
 });
@@ -37,7 +37,9 @@ $(document).on("click", "#myBtn", function () {
     .then(function (data) {
       console.log(data);
       // The title of the article
-      $("#notes").append("<h2 class='animated bounceInRight'>" + data.title + "</h2>");
+      $("#notes").css("background-color", "rgba(0, 0, 0, 0.6)");
+      $("#notes").addClass("animated boumceInRight");
+      $("#notes").append("<h2 class='animated bounceInRight' id='noteTitle'>" + data.title + "</h2>");
       // An input to enter a new title
       $("#notes").append("<input id='titleinput' name='title' class='animated bounceInRight'>");
       // A textarea to add a new note bod
@@ -79,7 +81,12 @@ $(document).on("click", "#savenote", function () {
       // Log the response
       console.log(data);
       // Empty the notes section
-      $("#notes").empty();
+      $("#noteTitle").removeClass("bounceInRight").addClass("bounceOutRight");
+      $("#titleinput").removeClass("bounceInRight").addClass("bounceOutRight");
+      $("#bodyinput").removeClass("bounceInRight").addClass("bounceOutRight");
+      $("#savenote").removeClass("bounceInRight").addClass("bounceOutRight");
+      $("#notes").css("background-color", "rgba(0,0,0,0)");
+
     });
 
   // Also, remove the values entered in the input and textarea for note entry
