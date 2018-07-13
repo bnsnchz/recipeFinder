@@ -32,6 +32,7 @@ $(document).on("click", "#myBtn", function () {
       method: "GET",
       url: "/articles/" + thisId
     })
+
     // With that done, add the note information to the page
     .then(function (data) {
       console.log(data);
@@ -45,7 +46,10 @@ $(document).on("click", "#myBtn", function () {
       $("#notes").append("<button data-id='" + data._id + "' id='savenote' class='animated bounceInRight'>Save Note</button>");
 
       // If there's a note in the article
+
       if (data.note) {
+
+        console.log(data.note);
         // Place the title of the note in the title input
         $("#titleinput").val(data.note.title);
         // Place the body of the note in the body textarea
