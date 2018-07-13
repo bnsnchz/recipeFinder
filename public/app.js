@@ -27,9 +27,6 @@ $(document).on("click", "#myBtn", function () {
 
   console.log(thisId);
 
-  $("textarea").css("display:block; position:fixed");
-  $("input").css("display:block; position:fixed");
-
   // Now make an ajax call for the Article
   $.ajax({
       method: "GET",

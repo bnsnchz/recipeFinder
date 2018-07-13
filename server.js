@@ -21,10 +21,17 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+var databaseUrl = "mongodb://localhost/bonscraper";
+
+if(process.env.MONGODB_URI){
+    mongoose.connect(process.env.MONGODB_URI);
+}else{
+    mongoose.connect(databaseUrl);
+    }
 app.use(express.static("public"));
 
 
-mongoose.connect("mongodb://localhost/bonscraper");
+
 
 
 app.get("/scrape", function (req, res) {
