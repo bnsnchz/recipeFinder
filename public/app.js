@@ -6,7 +6,7 @@ $.getJSON("/articles", function (data) {
       data[i].title +
       "</h2><br /><p><a href='" +
       data[i].link +
-      "'><img src='" +
+      "' target= '_blank'><img src='" +
       data[i].image +
       "'></a><p class='description'>" +
       data[i].descrip +
